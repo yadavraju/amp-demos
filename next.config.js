@@ -1,7 +1,7 @@
 const ExtraWatchWebpackPlugin = require('extra-watch-webpack-plugin');
-
-module.exports = {
-    webpack: (config, { buildId, dev, isServer, defaultLoaders, webpack }) => {
+const nextConfig = {
+    output: 'export',
+    webpack: (config, {buildId, dev, isServer, defaultLoaders, webpack}) => {
         // Note: we provide webpack above so you should not `require` it
         // Perform customizations to webpack config
         config.plugins.push(new ExtraWatchWebpackPlugin({
@@ -18,4 +18,5 @@ module.exports = {
         // Important: return the modified config
         return config;
     },
-};
+}
+module.exports = nextConfig
